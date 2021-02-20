@@ -33,17 +33,17 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+    protected $namespace = 'App\Http\Controllers';
+    //デフォルトの名前空間を追加
+    
     public function boot()
     {
         $this->configureRateLimiting();
 
         $this->routes(function () {
-            // Route::prefix('api')
-            //     ->middleware('api')
-            //     ->namespace($this->namespace)
-            //     ->group(base_path('routes/api.php'));
+
             Route::middleware('api')
-            ->namespace($this->namespace)
+            ->namespace($this->namespace) 
             ->group(base_path('routes/api.php'));
 
             Route::middleware('web')
